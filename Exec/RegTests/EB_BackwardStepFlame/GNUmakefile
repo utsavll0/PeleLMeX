@@ -14,7 +14,7 @@ MEM_PROFILE = FALSE
 USE_GPROF = FALSE
 
 # Performance
-USE_MPI = TRUE
+USE_MPI = FALSE
 USE_OMP = FALSE
 USE_CUDA = FALSE
 USE_HIP = FALSE
@@ -27,7 +27,7 @@ THREAD_SANITIZER = FALSE
 
 # PeleLMeX
 CEXE_headers += EBUserDefined.H
-CEXE_sources += PeleLMeX_PatchFlowVariables.cpp
+CEXE_sources += PeleLMeX_PatchFlowVariables.cpp C_DeepONet.cpp
 
 # PelePhysics
 Chemistry_Model = drm19

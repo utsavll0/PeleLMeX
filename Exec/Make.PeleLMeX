@@ -64,6 +64,14 @@ Blocs += $(foreach dir, $(LMdirs), $(PELE_HOME)/$(dir))
 # PelePhysics sources
 #---------------
 # EOS models switches
+PY_CFLAGS  := $(shell python3-config --cflags)
+PY_LDFLAGS := $(shell python3-config --ldflags)
+PY_NUMPYFLAGS = $(shell python3 -c "import numpy; print(numpy.get_include())")
+
+# Compiler flags
+CXXFLAGS += -I$(PY_CFLAGS) -I$(PY_NUMPYFLAGS)
+LDFLAGS += $(PY_LDFLAGS)
+
 ifeq ($(Eos_Model),$(filter $(Eos_Model),GammaLaw))
    DEFINES += -DUSE_GAMMALAW_EOS
 endif
